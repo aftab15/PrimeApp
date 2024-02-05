@@ -1,13 +1,20 @@
-import { useState } from 'react'
-import { Button } from 'flowbite-react';
 import Nav from './Layout/Nav';
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contact';
+import { BrowserRouter } from 'react-router-dom'
+
 
 function App() {
   return (
     <>
       <Nav/>
-      <span>Prime App</span>
-      <Button>Ckick Me!</Button>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Dashboard />}/>
+        <Route path='/contact' element={<Contact/>}/>
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
