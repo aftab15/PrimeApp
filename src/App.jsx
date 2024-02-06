@@ -1,4 +1,10 @@
+import Nav from "./layout/NavBar";
 import { Route, Routes } from "react-router-dom";
+import SignInForm from "./pages/AuthScreens/SignInForm";
+import Activation from "./pages/AuthScreens/Activation";
+import ForgotPassword from "./pages/AuthScreens/ForgotPassword";
+import ResetPassword from "./pages/AuthScreens/ResetPassword";
+import SignUpForm from "./pages/AuthScreens/SignUpForm";
 import Dashboard from "./pages/Dashboard";
 import Layout from "./layout/Layout";
 import Discover from "./pages/Discover";
@@ -9,11 +15,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* public path */}
-          <Route path="/signin" element={<Layout />} />
-          <Route path="/signup" element={<Layout />} />
-          <Route path="/forgot-password" element={<Layout />} />
           <Route path="/unauthorized" element={<Layout />} />
           <Route path="/errorscreen" element={<Layout />} />
+          <Route path="/signin" element={<SignInForm />} />
+          <Route path="/activation" element={<Activation />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/signup" element={<SignUpForm />} />
 
           {/* private path */}
           <Route path="/" element={<Dashboard />} />

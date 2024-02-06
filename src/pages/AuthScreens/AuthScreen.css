@@ -1,0 +1,24 @@
+.FormBox {
+  max-width: 26rem;
+}
+.FormWrapper {
+  /* height: 100%; */
+  width: 100%;
+  max-width: 28rem;
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1rem;
+}
+.SubmitBtn {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--25, 10px) var(--5, 20px);
+  border-radius: var(--Border-radius-rounded-lg, 8px);
+  background: var(--Fire-Opal-500, #eb614b);
+  transition: 0.2s;
+}
+.SubmitBtn:hover {
+  background: var(--Fire-Opal-600, #e13419);
+}
