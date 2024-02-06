@@ -93,18 +93,19 @@ const SignUpForm = () => {
               </div>
             </div>
           </div>
-          <div className="RememberMeForgotPassword flex justify-between items-center text-sm font-medium">
-            <div className="form-group flex items-center gap-2 select-none text-gray-500">
-              <input
-                type="checkbox"
-                className="rounded bg-gray-50 border border-gray-300"
-                id="RememberMeChk"
-              />
-              <label htmlFor="RememberMeChk">Remember me</label>
-            </div>
-            <Link replace to="/forgotpassword" className="text-blue-600 ">
-              Forgot password?
-            </Link>
+          <div className="form-group flex items-center gap-2 select-none text-gray-500">
+            <input
+              type="checkbox"
+              className="rounded bg-gray-50 border border-gray-300"
+              id="PrivacyPolicy"
+            />
+            <label className="text-sm font-normal" htmlFor="PrivacyPolicy">
+              I agree to the{" "}
+              <Link to={"/privacypolicy"} className="text-blue-700">
+                Privacy Policy
+              </Link>{" "}
+              and <Link className="text-blue-700">Terms of Conditions.</Link>
+            </label>
           </div>
 
           <button className="SubmitBtn">Activate & Sign in</button>
