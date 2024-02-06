@@ -1,24 +1,25 @@
 import React, { Children } from "react";
 import "./AuthScreen.css";
 import Logo from "../../assets/Logo.svg";
+import Google from "../../assets/Google.svg";
+import cloud from "../../assets/cloud.svg";
+import Microsoft from "../../assets/Microsoft.svg";
 import FormContainer from "../../common/components/FormContainer";
 import FormWrapper from "../../common/components/FormWrapper";
 import FormHeader from "../../common/components/FormHeader";
-import FormHelpText from "../../common/components/FormHelpText";
 import FormSocialButtons from "../../common/components/FormSocialButtons";
-import { Link } from "react-router-dom";
 
-const SignInForm = () => {
+const Activation = () => {
   return (
     <FormContainer>
       <FormWrapper>
         <img src={Logo} alt="Logo" className="w-full h-8" />
         <form className="w-full grid gap-6">
           <FormHeader
-            heading="Sign In"
-            subheading="Don’t have an account?"
-            link="/signup"
-            linktext="Sign up"
+            heading="Start prospecting for free"
+            subheading="Already have an account?"
+            link="/signin"
+            linktext="Login here"
           />
           <div className="Inputs grid gap-4">
             {/* Email */}
@@ -32,30 +33,6 @@ const SignInForm = () => {
                 placeholder="e.g. John.doe@acme.com"
               />
             </div>
-            {/* Password */}
-            <div className="form-group grid gap-2">
-              <label htmlFor="Password" className="text-sm font-medium">
-                Password
-              </label>
-              <input
-                type="password"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="***********"
-              />
-            </div>
-          </div>
-          <div className="RememberMeForgotPassword flex justify-between items-center text-sm font-medium">
-            <div className="form-group flex items-center gap-2 select-none text-gray-500">
-              <input
-                type="checkbox"
-                className="rounded bg-gray-50 border border-gray-300"
-                id="RememberMeChk"
-              />
-              <label htmlFor="RememberMeChk">Remember me</label>
-            </div>
-            <Link replace to="/forgotpassword" className="text-blue-600 ">
-              Forgot password?
-            </Link>
           </div>
 
           <button className="SubmitBtn">Submit</button>
@@ -69,15 +46,10 @@ const SignInForm = () => {
           </div>
 
           <FormSocialButtons />
-          <FormHelpText
-            text={"Need help? Contact"}
-            link={"/signup"}
-            linktext={"support@smarteinc.com"}
-          />
         </form>
       </FormWrapper>
     </FormContainer>
   );
 };
 
-export default SignInForm;
+export default Activation;

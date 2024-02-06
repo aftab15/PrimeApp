@@ -1,5 +1,4 @@
 import React from "react";
-import "./AuthScreenContainer.css";
 import SignInForm from "./SignInForm";
 
 const AuthScreenContainer = ({ screen }) => {
