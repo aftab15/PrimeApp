@@ -22,3 +22,7 @@
 .SubmitBtn:hover {
   background: var(--Fire-Opal-600, #e13419);
 }
+.AuthWrapper {
+  background: url("../../assets/brand/Banner.svg") no-repeat;
+  background-size: cover;
+}
