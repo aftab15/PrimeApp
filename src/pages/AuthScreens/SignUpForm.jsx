@@ -103,7 +103,7 @@ const SignUpForm = () => {
               />
               <label htmlFor="RememberMeChk">Remember me</label>
             </div>
-            <Link replace to="fg" className="text-blue-600 ">
+            <Link replace to="/forgotpassword" className="text-blue-600 ">
               Forgot password?
             </Link>
           </div>
