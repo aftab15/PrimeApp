@@ -1,22 +1,30 @@
-import Nav from './Layout/Nav';
-import { Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Contact from './pages/Contact';
-import { BrowserRouter } from 'react-router-dom'
-
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Layout from "./layout/Layout";
+import Discover from "./pages/Discover";
 
 function App() {
   return (
     <>
-      <Nav/>
-      <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Dashboard />}/>
-        <Route path='/contact' element={<Contact/>}/>
+        <Route path="/" element={<Layout />}>
+          {/* public path */}
+          <Route path="/signin" element={<Layout />} />
+          <Route path="/signup" element={<Layout />} />
+          <Route path="/forgot-password" element={<Layout />} />
+          <Route path="/unauthorized" element={<Layout />} />
+          <Route path="/errorscreen" element={<Layout />} />
+
+          {/* private path */}
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/discover" element={<Discover />} />
+          <Route path="/enrich" element={<Layout />} />
+          <Route path="/onboarding" element={<Layout />} />
+          <Route path="/list" element={<Layout />} />
+        </Route>
       </Routes>
-      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
