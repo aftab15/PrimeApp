@@ -1,13 +1,10 @@
 import React, { Children } from "react";
 import "./AuthScreen.css";
-import Logo from "../../assets/Logo.svg";
-import Google from "../../assets/Google.svg";
-import cloud from "../../assets/cloud.svg";
-import Microsoft from "../../assets/Microsoft.svg";
-import FormContainer from "../../common/components/FormContainer";
-import FormWrapper from "../../common/components/FormWrapper";
-import FormHeader from "../../common/components/FormHeader";
-import FormSocialButtons from "../../common/components/FormSocialButtons";
+import Logo from "../../assets/brand/Logo.svg";
+import FormContainer from "./components/FormContainer";
+import FormWrapper from "./components/FormWrapper";
+import FormHeader from "./components/FormHeader";
+import FormSocialButtons from "./components/FormSocialButtons";
 
 const Activation = () => {
   return (

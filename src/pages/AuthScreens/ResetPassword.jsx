@@ -1,10 +1,10 @@
 import React, { Children } from "react";
 import "./AuthScreen.css";
-import Logo from "../../assets/Logo.svg";
-import FormContainer from "../../common/components/FormContainer";
-import FormWrapper from "../../common/components/FormWrapper";
-import FormHeader from "../../common/components/FormHeader";
-import FormHelpText from "../../common/components/FormHelpText";
+import Logo from "../../assets/brand/Logo.svg";
+import FormContainer from "./components/FormContainer";
+import FormWrapper from "./components/FormWrapper";
+import FormHeader from "./components/FormHeader";
+import FormHelpText from "./components/FormHelpText";
 
 const ResetPassword = () => {
   return (

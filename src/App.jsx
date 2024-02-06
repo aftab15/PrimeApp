@@ -13,23 +13,20 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* public path */}
-          <Route path="/unauthorized" element={<Layout />} />
-          <Route path="/errorscreen" element={<Layout />} />
           <Route path="/signin" element={<SignInForm />} />
           <Route path="/activation" element={<Activation />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/signup" element={<SignUpForm />} />
-
-          {/* private path */}
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/discover" element={<Discover />} />
-          <Route path="/enrich" element={<Layout />} />
-          <Route path="/onboarding" element={<Layout />} />
-          <Route path="/list" element={<Layout />} />
-        </Route>
+          <Route path="/unauthorized" element={<Layout />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="/errorscreen" element={<Layout />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/discover" element={<Discover />} />
+            <Route path="/enrich" element={<Layout />} />
+            <Route path="/onboarding" element={<Layout />} />
+            <Route path="/list" element={<Layout />} />
+          </Route>
       </Routes>
     </>
   );

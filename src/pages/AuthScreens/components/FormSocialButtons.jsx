@@ -1,6 +1,6 @@
-import Google from "../../assets/Google.svg";
-import cloud from "../../assets/cloud.svg";
-import Microsoft from "../../assets/Microsoft.svg";
+import Google from "../../../assets/svgs/Google.svg";
+import cloud from "../../../assets/svgs/cloud.svg";
+import Microsoft from "../../../assets/svgs/Microsoft.svg";
 
 const FormSocialButtons = () => {
   return (
