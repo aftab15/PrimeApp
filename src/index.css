@@ -8,3 +8,28 @@
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
 }
+
+:root {
+  --Fire-Opal-500: #eb614b;
+  --primary: var(--Fire-Opal-500);
+}
+input:focus {
+  --tw-ring-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+[type="checkbox"]:checked,
+[type="radio"]:checked,
+.dark [type="checkbox"]:checked,
+.dark [type="radio"]:checked {
+  background-color: var(--primary);
+}
+
+[type="checkbox"]:focus {
+  color: var(--primary);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow);
+}
+:focus-visible {
+  outline: var(--primary) auto 1px;
+}

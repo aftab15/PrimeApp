@@ -10,14 +10,38 @@ import { Link } from "react-router-dom";
 import eyeIcon from "../../assets/svgs/eye-icon.svg";
 import eyeSlashIcon from "../../assets/svgs/eye-slash-icon.svg";
 import PasswordField from "./components/PasswordField";
+import TextField from "./components/TextField";
+import { VALIDATIONS } from "../../utils/constants";
 
 const SignInForm = () => {
-  const [Password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!VALIDATIONS.EMAIL.test(email)) {
+      setEmailError("Please enter a valid input");
+      return;
+    }
+    if (password === "") {
+      setPasswordError("Please enter a valid input");
+      return;
+    }
+    if (emailError === "" && passwordError === "") {
+      console.log({
+        email,
+        password,
+      });
+    }
+  };
   return (
     <FormContainer>
       <FormWrapper>
         <img src={Logo} alt="Logo" className="w-full h-8" />
-        <form className="w-full grid gap-6">
+        <form onSubmit={handleSubmit} className="w-full grid gap-6">
           <FormHeader
             heading="Sign In"
             subheading="Don’t have an account?"
@@ -26,20 +50,19 @@ const SignInForm = () => {
           />
           <div className="Inputs grid gap-4">
             {/* Email */}
-            <div className="form-group grid gap-2">
-              <label htmlFor="Email" className="text-sm font-medium">
-                Email
-              </label>
-              <input
-                type="text"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="e.g. John.doe@acme.com"
-              />
-            </div>
+            <TextField
+              Label="Email"
+              Text={email}
+              setText={setEmail}
+              error={emailError}
+              setError={setEmailError}
+            />
             <PasswordField
               Label="Password"
-              Password={Password}
+              Password={password}
               setPassword={setPassword}
+              error={passwordError}
+              setError={setPasswordError}
             />
           </div>
           <div className="RememberMeForgotPassword flex justify-between items-center text-sm font-medium">
@@ -57,15 +80,7 @@ const SignInForm = () => {
           </div>
 
           <button className="SubmitBtn">Submit</button>
-
-          <div className="separator flex justify-center items-center self-stretch gap-6">
-            <div className="separator-1 h-px bg-gray-200 flex-grow" />
-            <div className="text-gray-500 text-center text-base font-medium">
-              Or continue with
-            </div>
-            <div className="separator-2 h-px bg-gray-200 flex-grow" />
-          </div>
-
+          <Seperator />
           <FormSocialButtons />
           <FormHelpText
             text={"Need help? Contact"}
@@ -78,4 +93,15 @@ const SignInForm = () => {
   );
 };
 
+export const Seperator = () => {
+  return (
+    <div className="separator flex justify-center items-center self-stretch gap-6">
+      <div className="separator-1 h-px bg-gray-200 flex-grow" />
+      <div className="text-gray-500 text-center text-base font-medium">
+        Or continue with
+      </div>
+      <div className="separator-2 h-px bg-gray-200 flex-grow" />
+    </div>
+  );
+};
 export default SignInForm;

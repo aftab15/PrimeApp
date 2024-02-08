@@ -7,17 +7,63 @@ import FormHeader from "./components/FormHeader";
 import FormHelpText from "./components/FormHelpText";
 import { Link } from "react-router-dom";
 import PasswordField from "./components/PasswordField";
+import TextField from "./components/TextField";
+import { VALIDATIONS } from "../../utils/constants";
 
 const SignUpForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showCPassword, setShowCPassword] = useState(false);
-  const [Password, setPassword] = useState("");
-  const [CPassword, setCPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const [designation, setDesignation] = useState("");
+
+  const [firstName, setFirstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+
+  const [lastName, setLastName] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const [cPassword, setCPassword] = useState("");
+  const [cPasswordError, setCPasswordError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!VALIDATIONS.EMAIL.test(email)) {
+      document.getElementById("Email").scrollIntoView();
+      setEmailError("Please enter a valid input");
+      return;
+    }
+    if (firstName === "") {
+      setFirstNameError("Please enter a valid input");
+      return;
+    }
+    if (lastName === "") {
+      setLastNameError("Please enter a valid input");
+      return;
+    }
+    if (password === "") {
+      setPasswordError("Please enter a valid input");
+      return;
+    }
+    if (cPassword === "") {
+      setCPasswordError("Please enter a valid input");
+      return;
+    }
+    if (cPassword !== password) {
+      setCPasswordError("Passwords do not match!");
+      return;
+    }
+    if (emailError === "" && passwordError === "") {
+      
+    }
+  };
   return (
     <FormContainer>
       <FormWrapper>
         <img src={Logo} alt="Logo" className="w-full h-8" />
-        <form className="w-full grid gap-6">
+        <form onSubmit={handleSubmit} className="w-full grid gap-6">
           <FormHeader
             heading="Sign up Activation"
             subheading="Already have an account? "
@@ -26,65 +72,57 @@ const SignUpForm = () => {
           />
           <div className="Inputs grid gap-4">
             {/* Email */}
-            <div className="form-group grid gap-2">
-              <label htmlFor="Email" className="text-sm font-medium">
-                Email
-              </label>
-              <input
-                type="text"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="e.g. John.doe@acme.com"
-              />
-            </div>
+            <TextField
+              Label="Email"
+              placeholder="e.g John.doe@acme.com"
+              Text={email}
+              setText={setEmail}
+              error={emailError}
+              setError={setEmailError}
+            />
             {/* Designation */}
-            <div className="form-group grid gap-2">
-              <label htmlFor="Email" className="text-sm font-medium">
-                Designation{" "}
-                <span className="text-sm font-normal text-gray-500">
-                  (Optional)
-                </span>
-              </label>
-              <input
-                type="text"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="e.g. Product Manager"
-              />
-            </div>
+            <TextField
+              Label="Designation"
+              SubLabel="(Optional)"
+              placeholder="e.g. Product Manager"
+              Text={designation}
+              setText={setDesignation}
+            />
             {/* Info */}
             <div className="form-multi-group grid sm:grid-cols-2 gap-2">
-              <div className="form-group grid gap-2">
-                <label htmlFor="Email" className="text-sm font-medium">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  className="rounded-lg py-3 px-4 border border-solid border-gray-300 w-full"
-                  placeholder="e.g. John"
-                />
-              </div>
-              <div className="form-group grid gap-2 ">
-                <label htmlFor="Email" className="text-sm font-medium">
-                  Last name
-                </label>
-                <input
-                  type="text"
-                  className="rounded-lg py-3 px-4 border border-solid border-gray-300 w-full"
-                  placeholder="e.g. doe"
-                />
-              </div>
+              <TextField
+                Label="First Name"
+                placeholder="e.g. John"
+                Text={firstName}
+                setText={setFirstName}
+                error={firstNameError}
+                setError={setFirstNameError}
+              />
+              <TextField
+                Label="Last Name"
+                placeholder="e.g. Doe"
+                Text={lastName}
+                setText={setLastName}
+                error={lastNameError}
+                setError={setLastNameError}
+              />
             </div>
 
             {/* Password Group */}
             <div className="form-multi-group grid sm:grid-cols-2 gap-2">
               <PasswordField
                 Label="Password"
-                Password={Password}
+                Password={password}
                 setPassword={setPassword}
+                error={passwordError}
+                setError={setPasswordError}
               />
               <PasswordField
                 Label="Confirm Password"
-                Password={CPassword}
+                Password={cPassword}
                 setPassword={setCPassword}
+                error={cPasswordError}
+                setError={setCPasswordError}
               />
             </div>
           </div>
