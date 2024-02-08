@@ -37,7 +37,7 @@ const ResetPassword = () => {
             />
           </div>
 
-          <button className="SubmitBtn">Set password</button>
+          <button className="SubmitBtn  bg-Fire-Opal-500 hover:bg-Fire-Opal-600">Set password</button>
           <FormHelpText
             text={"Need help? Contact"}
             link={"/signup"}

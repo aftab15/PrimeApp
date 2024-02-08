@@ -52,7 +52,7 @@ const ForgotPassword = () => {
             </label>
           </div>
 
-          <button className="SubmitBtn">Send password reset link</button>
+          <button className="SubmitBtn bg-Fire-Opal-500 hover:bg-Fire-Opal-600">Send password reset link</button>
           <FormHelpText
             text={"Need help? Contact"}
             link={"/signup"}

@@ -102,7 +102,7 @@ const SignInForm = () => {
           </div>
 
           <button
-            className={classNames("SubmitBtn", {
+            className={classNames("SubmitBtn  bg-Fire-Opal-500 hover:bg-Fire-Opal-600", {
               "border border-gray-200 bg-white text-gray-900 text-xs hover:bg-white":
                 Loading,
             })}

@@ -47,7 +47,7 @@ const Activation = () => {
             />
           </div>
 
-          <button className="SubmitBtn">Submit</button>
+          <button className="SubmitBtn bg-Fire-Opal-500 hover:bg-Fire-Opal-600">Submit</button>
 
           <Seperator />
 

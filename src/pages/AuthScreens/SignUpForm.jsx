@@ -141,7 +141,7 @@ const SignUpForm = () => {
             </label>
           </div>
 
-          <button className="SubmitBtn">Activate & Sign in</button>
+          <button className="SubmitBtn  bg-Fire-Opal-500 hover:bg-Fire-Opal-600">Activate & Sign in</button>
           <FormHelpText
             text={"Need help? Contact"}
             link={"/signup"}
