@@ -1,12 +1,18 @@
-import React, { Children } from "react";
+import React, { Children, useState } from "react";
 import "./AuthScreen.css";
 import Logo from "../../assets/brand/Logo.svg";
 import FormContainer from "./components/FormContainer";
 import FormWrapper from "./components/FormWrapper";
 import FormHeader from "./components/FormHeader";
 import FormHelpText from "./components/FormHelpText";
+import eyeIcon from "../../assets/svgs/eye-icon.svg";
+import eyeSlashIcon from "../../assets/svgs/eye-slash-icon.svg";
+import classNames from "classnames";
+import PasswordField from "./components/PasswordField";
 
 const ResetPassword = () => {
+  const [Password, setPassword] = useState("");
+  const [CPassword, setCPassword] = useState("");
   return (
     <FormContainer>
       <FormWrapper>
@@ -19,26 +25,16 @@ const ResetPassword = () => {
             linktext="Login here"
           />
           <div className="Inputs grid gap-4">
-            <div className="form-group grid gap-2">
-              <label htmlFor="Password" className="text-sm font-medium">
-                New Password
-              </label>
-              <input
-                type="password"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="***********"
-              />
-            </div>{" "}
-            <div className="form-group grid gap-2">
-              <label htmlFor="Password" className="text-sm font-medium">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="***********"
-              />
-            </div>
+            <PasswordField
+              Label="New Password"
+              Password={Password}
+              setPassword={setPassword}
+            />
+            <PasswordField
+              Label="Confirm Password"
+              Password={CPassword}
+              setPassword={setCPassword}
+            />
           </div>
 
           <button className="SubmitBtn">Set password</button>

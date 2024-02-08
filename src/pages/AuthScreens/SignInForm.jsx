@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { useState } from "react";
 import "./AuthScreen.css";
 import Logo from "../../assets/brand/Logo.svg";
 import FormContainer from "./components/FormContainer";
@@ -7,8 +7,12 @@ import FormHeader from "./components/FormHeader";
 import FormHelpText from "./components/FormHelpText";
 import FormSocialButtons from "./components/FormSocialButtons";
 import { Link } from "react-router-dom";
+import eyeIcon from "../../assets/svgs/eye-icon.svg";
+import eyeSlashIcon from "../../assets/svgs/eye-slash-icon.svg";
+import PasswordField from "./components/PasswordField";
 
 const SignInForm = () => {
+  const [Password, setPassword] = useState("");
   return (
     <FormContainer>
       <FormWrapper>
@@ -32,17 +36,11 @@ const SignInForm = () => {
                 placeholder="e.g. John.doe@acme.com"
               />
             </div>
-            {/* Password */}
-            <div className="form-group grid gap-2">
-              <label htmlFor="Password" className="text-sm font-medium">
-                Password
-              </label>
-              <input
-                type="password"
-                className="rounded-lg py-3 px-4 border border-solid border-gray-300"
-                placeholder="***********"
-              />
-            </div>
+            <PasswordField
+              Label="Password"
+              Password={Password}
+              setPassword={setPassword}
+            />
           </div>
           <div className="RememberMeForgotPassword flex justify-between items-center text-sm font-medium">
             <div className="form-group flex items-center gap-2 select-none text-gray-500">
@@ -60,12 +58,12 @@ const SignInForm = () => {
 
           <button className="SubmitBtn">Submit</button>
 
-          <div className="seperator flex items-center gap-6">
-            <hr className="h-px w-4/5" />
-            <p className="grow text-center w-full text-base font-medium text-gray-500">
+          <div className="separator flex justify-center items-center self-stretch gap-6">
+            <div className="separator-1 h-px bg-gray-200 flex-grow" />
+            <div className="text-gray-500 text-center text-base font-medium">
               Or continue with
-            </p>
-            <hr className="h-px w-4/5" />
+            </div>
+            <div className="separator-2 h-px bg-gray-200 flex-grow" />
           </div>
 
           <FormSocialButtons />

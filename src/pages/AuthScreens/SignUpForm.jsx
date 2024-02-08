@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AuthScreen.css";
 import Logo from "../../assets/brand/Logo.svg";
 import FormContainer from "./components/FormContainer";
@@ -6,8 +6,13 @@ import FormWrapper from "./components/FormWrapper";
 import FormHeader from "./components/FormHeader";
 import FormHelpText from "./components/FormHelpText";
 import { Link } from "react-router-dom";
+import PasswordField from "./components/PasswordField";
 
 const SignUpForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCPassword, setShowCPassword] = useState(false);
+  const [Password, setPassword] = useState("");
+  const [CPassword, setCPassword] = useState("");
   return (
     <FormContainer>
       <FormWrapper>
@@ -69,28 +74,18 @@ const SignUpForm = () => {
               </div>
             </div>
 
-            {/* Password */}
+            {/* Password Group */}
             <div className="form-multi-group grid sm:grid-cols-2 gap-2">
-              <div className="form-group grid gap-2">
-                <label htmlFor="Email" className="text-sm font-medium">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="rounded-lg py-3 px-4 border border-solid border-gray-300 w-full"
-                  placeholder="**********"
-                />
-              </div>
-              <div className="form-group grid gap-2 ">
-                <label htmlFor="Email" className="text-sm font-medium">
-                  Confirm Password
-                </label>
-                <input
-                  type="text"
-                  className="rounded-lg py-3 px-4 border border-solid border-gray-300 w-full"
-                  placeholder="**********"
-                />
-              </div>
+              <PasswordField
+                Label="Password"
+                Password={Password}
+                setPassword={setPassword}
+              />
+              <PasswordField
+                Label="Confirm Password"
+                Password={CPassword}
+                setPassword={setCPassword}
+              />
             </div>
           </div>
           <div className="form-group flex items-center gap-2 select-none text-gray-500">
