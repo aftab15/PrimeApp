@@ -2,8 +2,11 @@ import React from "react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import viteLogo from "/vite.svg";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setState } from "../redux/slice/dashboardSlice";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   return (
     <Navbar fluid rounded>
       <Navbar.Brand href="https://flowbite-react.com">
@@ -38,7 +41,13 @@ const NavBar = () => {
           <Dropdown.Item>Settings</Dropdown.Item>
           <Dropdown.Item>Earnings</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => {
+              dispatch(setState({ user: { role: "" } }));
+            }}
+          >
+            Sign out
+          </Dropdown.Item>
         </Dropdown>
         <Navbar.Toggle />
       </div>

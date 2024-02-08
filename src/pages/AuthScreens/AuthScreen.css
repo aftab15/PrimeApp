@@ -11,6 +11,7 @@
   padding: 1rem;
 }
 .SubmitBtn {
+  height: 36px;
   color: white;
   font-size: 14px;
   font-weight: 500;
@@ -22,6 +23,14 @@
 .SubmitBtn:hover {
   background: var(--Fire-Opal-600, #e13419);
 }
+.SubmitBtn.Loading {
+  background: white;
+  color: black;
+}
+.SubmitBtn.Loading:hover {
+  background: white;
+}
+
 .AuthWrapper {
   background: url("../../assets/brand/Banner.svg") no-repeat;
   background-size: cover;

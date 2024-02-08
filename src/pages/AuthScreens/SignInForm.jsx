@@ -6,21 +6,27 @@ import FormWrapper from "./components/FormWrapper";
 import FormHeader from "./components/FormHeader";
 import FormHelpText from "./components/FormHelpText";
 import FormSocialButtons from "./components/FormSocialButtons";
-import { Link } from "react-router-dom";
-import eyeIcon from "../../assets/svgs/eye-icon.svg";
-import eyeSlashIcon from "../../assets/svgs/eye-slash-icon.svg";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordField from "./components/PasswordField";
 import TextField from "./components/TextField";
 import { VALIDATIONS } from "../../utils/constants";
+import { apiCall } from "../../services/apis/auth/signinDummy";
+import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { setState } from "../../redux/slice/dashboardSlice";
 
 const SignInForm = () => {
+  const from = location.state?.from?.pathname || "/";
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [Loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!VALIDATIONS.EMAIL.test(email)) {
       setEmailError("Please enter a valid input");
@@ -35,6 +41,22 @@ const SignInForm = () => {
         email,
         password,
       });
+      setLoading(true);
+      const data = await apiCall("signin200");
+      setLoading(false);
+      console.log(data);
+      dispatch(
+        setState({
+          user: {
+            role: 200,
+          },
+        })
+      );
+      navigate(from, { replace: true });
+
+      //If error from server
+      // setEmailError(" ");
+      // setPasswordError("Bad credentials");
     }
   };
   return (
@@ -79,7 +101,14 @@ const SignInForm = () => {
             </Link>
           </div>
 
-          <button className="SubmitBtn">Submit</button>
+          <button
+            className={classNames("SubmitBtn", {
+              "border border-gray-200 bg-white text-gray-900 text-xs hover:bg-white":
+                Loading,
+            })}
+          >
+            {Loading ? "Signing in" : "Submit"}
+          </button>
           <Seperator />
           <FormSocialButtons />
           <FormHelpText

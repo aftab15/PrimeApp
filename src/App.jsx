@@ -10,12 +10,13 @@ import Layout from "./layout/Layout";
 import Discover from "./pages/Discover";
 import Privacy from "./pages/AuthScreens/Privacy";
 import RequireAuth from "./pages/AuthScreens/RequireAuth";
+import { useSelector } from "react-redux";
 
 const ROLES = {
-  'Free': 100,
-  'Explorer': 200,
-  'Admin': 300
-}
+  Free: 200,
+  Explorer: 200,
+  Admin: 300,
+};
 
 function App() {
   return (
