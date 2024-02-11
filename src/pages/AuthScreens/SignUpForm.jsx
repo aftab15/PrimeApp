@@ -56,7 +56,6 @@ const SignUpForm = () => {
       return;
     }
     if (emailError === "" && passwordError === "") {
-      
     }
   };
   return (
@@ -111,7 +110,7 @@ const SignUpForm = () => {
             {/* Password Group */}
             <div className="form-multi-group grid sm:grid-cols-2 gap-2">
               <PasswordField
-                Label="Password"
+                Label="New Password"
                 Password={password}
                 setPassword={setPassword}
                 error={passwordError}

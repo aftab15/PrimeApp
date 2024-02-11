@@ -8,7 +8,7 @@ const TextField = ({
   Text,
   setText,
   error = "",
-  setError,
+  setError = (e) => {},
 }) => {
   const onChangeHandler = (e) => {
     setText(e.target.value);

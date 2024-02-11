@@ -32,3 +32,8 @@
   background: url("../../assets/brand/Banner.svg") no-repeat;
   background-size: cover;
 }
+
+input[id="New Password"]:hover + #popover-password {
+  opacity: 1;
+  visibility: visible;
+}

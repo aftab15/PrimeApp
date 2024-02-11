@@ -10,7 +10,6 @@ import Layout from "./layout/Layout";
 import Discover from "./pages/Discover";
 import Privacy from "./pages/AuthScreens/Privacy";
 import RequireAuth from "./pages/AuthScreens/RequireAuth";
-import { useSelector } from "react-redux";
 
 const ROLES = {
   Free: 200,
